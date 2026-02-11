@@ -300,6 +300,7 @@ class LinguisticFeaturesDatasetEvaluator(BaseDatasetEvaluator):
         self.all_results = []
 
     @staticmethod
+    # <noise> *laughs* (xxx) ... remove
     def clean_utterance(text):
         cleaned = re.sub(r'<[^>]*>', '', text)
         cleaned = re.sub(r'\*[^*]*\*', '', cleaned)
@@ -312,6 +313,7 @@ class LinguisticFeaturesDatasetEvaluator(BaseDatasetEvaluator):
         return max(1, syllables.estimate(word))
 
     @staticmethod
+    # for readability score
     def count_complex_words(text):
         words = text.split()
         return sum(1 for word in words if syllables.estimate(word) >= 3), len(words)
@@ -348,7 +350,7 @@ class LinguisticFeaturesDatasetEvaluator(BaseDatasetEvaluator):
 
     @staticmethod
     def count_hesitations(text):
-        # Exclude the backchannel
+        # Exclude some backchannel
         hesitation_patterns = [
             r'\buh+\b',     # uh, uhh, uhhh
             r'\bum+\b',     # um, umm, ummm
