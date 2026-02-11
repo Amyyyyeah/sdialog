@@ -37,7 +37,7 @@ from ..util import KNNModel, softmax, get_llm_model, dict_to_table, upper_camel_
 def cs_divergence(p1, p2, resolution=100, bw_method=1):
     """
     Calculates the Cauchy-Schwarz divergence between two probability distributions.
-
+    (0 is the same distribution)
     :param p1: First sample (1D array or list)
     :type p1: array-like
     :param p2: Second sample (1D array or list)
