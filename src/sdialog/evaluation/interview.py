@@ -1,3 +1,39 @@
+"""
+# Mock turn and dialog classes for demonstration
+class Turn:
+    def __init__(self, speaker, text):
+        self.speaker = speaker
+        self.text = text
+
+class Dialog:
+    def __init__(self, turns):
+        self.turns = turns
+
+
+# Create example dialogue
+dialog1 = Dialog([
+    Turn("Child", "uh I want to go to the park."),
+    Turn("Adult", "That sounds great. What do you want to do there?"),
+    Turn("Child", "um maybe play soccer.")
+])
+
+dialog2 = Dialog([
+    Turn("Child", "I like reading books."),
+    Turn("Adult", "What kind of books do you enjoy?")
+])
+
+
+# Run evaluation
+evaluator = LinguisticFeaturesDatasetEvaluator()
+summary = evaluator.run([dialog1, dialog2], dataset_name="example_dataset")
+
+print("Evaluation Summary:")
+for k, v in summary.items():
+    print(f"{k}: {v}")
+
+"""
+
+
 import re
 import os
 import uuid
